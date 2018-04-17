@@ -1,0 +1,22 @@
+{% extends 'static/app.twig' %}
+
+{% block head %}
+    {% include 'static/head.twig' %}
+{% endblock %}
+
+{% block content %}
+    <h1>MENU</h1>
+    <div class="menuItem">
+        <a href="index.php?page=admin">Panel administracyjny</a>
+    </div>
+    <div class="menuItem">
+        <a href="index.php?page=quiz">Rozpocznij quiz</a>
+    </div>
+    <div class="menuItem">
+        <a href="index.php?page=scoreboard">Sprawdź wyniki</a>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'static/footer.twig' %}
+{% endblock %}

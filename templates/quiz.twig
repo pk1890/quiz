@@ -1,0 +1,29 @@
+{% extends 'static/app.twig' %}
+
+{% block head %}
+    {% include 'static/head.twig' %}
+{% endblock %}
+
+{% block content %}
+    <h1>QUIZ</h1>
+    <form method="POST" action="modules/quiz.php">
+    {% for question in data %}
+        <div class="quistionItem">
+            <div class="qText">
+                {{loop.index}}.){{question.content}}
+            </div>
+            <div class="answers">
+                <input type="radio" name="answer[{{question.id}}]" value="a"><span>a){{question.a}}</span>
+                <input type="radio" name="answer[{{question.id}}]" value="b"><span>b){{question.b}}</span>
+                <input type="radio" name="answer[{{question.id}}]" value="c"><span>c){{question.c}}</span>
+                <input type="radio" name="answer[{{question.id}}]" value="d"><span>d){{question.d}}</span>
+            </div>
+        </div>
+    {% endfor %}
+    <input type="submit" value="Wyślij">
+    </form>
+{% endblock %}
+
+{% block footer %}
+    {% include 'static/footer.twig' %}
+{% endblock %}
