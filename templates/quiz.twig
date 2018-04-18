@@ -5,23 +5,37 @@
 {% endblock %}
 
 {% block content %}
-    <h1>QUIZ</h1>
-    <form method="POST" action="modules/quiz.php">
-    {% for question in data %}
-        <div class="quistionItem">
-            <div class="qText">
-                {{loop.index}}.){{question.content}}
-            </div>
-            <div class="answers">
-                <input type="radio" name="answer[{{question.id}}]" value="a"><span>a){{question.a}}</span>
-                <input type="radio" name="answer[{{question.id}}]" value="b"><span>b){{question.b}}</span>
-                <input type="radio" name="answer[{{question.id}}]" value="c"><span>c){{question.c}}</span>
-                <input type="radio" name="answer[{{question.id}}]" value="d"><span>d){{question.d}}</span>
-            </div>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">  
+            <h1>QUIZ</h1>
+            <form method="POST" action="modules/quiz.php">
+            {% for question in data %}
+                <div class="quistionItem">
+                    <div class="qText">
+                        <h5>{{loop.index}}. {{question.content}}</h5>
+                    </div>
+                    <div class="answers spaceb">
+                        <div class="input-group-text">
+                        <input type="radio" name="answer[{{question.id}}]" value="a"><span>a) {{question.a}}</span>
+                        </div>
+                        <div class="input-group-text">
+                        <input type="radio" name="answer[{{question.id}}]" value="b"><span>b) {{question.b}}</span>
+                        </div>
+                        <div class="input-group-text">
+                        <input type="radio" name="answer[{{question.id}}]" value="c"><span>c) {{question.c}}</span>
+                        </div>
+                        <div class="input-group-text">
+                        <input type="radio" name="answer[{{question.id}}]" value="d"><span>d) {{question.d}}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <input class="btn btn-primary col" type="submit" value="Wyślij">
+            </form>
         </div>
-    {% endfor %}
-    <input type="submit" value="Wyślij">
-    </form>
+    </div>
+</div>
 {% endblock %}
 
 {% block footer %}

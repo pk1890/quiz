@@ -5,16 +5,30 @@
 {% endblock %}
 
 {% block content %}
-    <h1>scoreboard</h1>
-    
-    <table>
-    {% for record in data %}
-        <tr>
-            <td>{{record.login}}</td>
-            <td>{{record.score}}</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col">  
+                <h1>Tabela wyników</h1>
+                
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nick</th>
+                        <th scope="col">Wynik</th>
+                    </tr>
+                </thead>
+                {% for record in data %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{record.login}}</td>
+                        <td>{{record.score}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block footer %}

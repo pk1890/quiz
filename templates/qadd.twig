@@ -1,0 +1,46 @@
+{% extends 'static/app.twig' %}
+
+{% block head %}
+    {% include 'static/head.twig' %}
+{% endblock %}
+
+{% block content %}    
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col">
+               <div class="alert alert-warning" role="alert">
+                 {{message}}
+            </div>
+                <h3>Dodaj pytanie</h3> 
+                <form method="POST" action="modules/admin.php?action=qadd">
+                    <div class="menuItem">
+                        <input class="form-control form-control-lg spaceb" type="text" placeholder="Pytanie" name="question">
+                    </div>
+                    {% for lett in 'a'..'d' %}
+                    <div class = "menuItem">
+                        <input class="form-control form-control-lg spaceb" type="text" placeholder="Odpowiedź {{lett}}" name="ans_{{lett}}">
+                    </div class = "menuItem">
+                    {% endfor %}
+                    <div class = "menuItem">
+                        Prawidłowa odpowiedź
+                        <div class="answers row answerFlex">
+                            {% for lett in 'a'..'d' %}
+                                <div class="input-group-text spaceb">
+                                    <input type="radio" aria-label="Radio button for following text input" name="answer" value="{{lett}}">{{lett}})
+                                </div>
+                            {% endfor %}
+                         
+                        </div>
+                    </div class = "menuItem">
+                    <input type="submit" value="Dodaj pytanie" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'static/footer.twig' %}
+{% endblock %}

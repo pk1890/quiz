@@ -5,8 +5,34 @@
 {% endblock %}
 
 {% block content %}
-    <h1>ADMIN</h1>
-    
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col">  
+            <h1>ADMIN</h1>
+            
+            <div class="menuItem">
+                <a class="btn btn-primary spaceb constWidthBtn" href="index.php?page=qadd">Dodaj pytanie</a>
+            </div>
+            <div class="menuItem">
+                <a class="btn btn-primary spaceb constWidthBtn" href="modules/admin.php?action=logout">Wyloguj</a>
+            </div>
+            <h3>Usuń pytania </h3>
+            <table class="table table-striped tableQuestion">
+            {% for question in questions %}
+                <tr>
+                    <td>
+                         {{question.content}}
+                        </td>
+                        <td>
+                          <a class="btn btn-danger"href="modules/admin.php?action=remove&id={{question.id}}">Usuń</a>
+                        </td>
+                </tr>
+            {% endfor %}
+                </table>
+        </div>
+    </div>
+</div>
+        
 {% endblock %}
 
 {% block footer %}

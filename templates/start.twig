@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content %}
+
+
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-auto centerText">  
@@ -13,21 +15,17 @@
                  {{message}}
             </div>
             <div class="menuItem">
-                <a class="btn btn-primary spaceb constWidthBtn" href="index.php?page=admin">Panel administracyjny</a>
+                <a class="btn btn-primary spaceb constWidthBtn" href="index.php?page=userLogin">Zaloguj się</a>
             </div>
             <div class="menuItem">
-                <a class="btn btn-primary spaceb constWidthBtn" href="index.php?page=quiz">Rozpocznij quiz</a>
+                <a class="btn btn-primary spaceb constWidthBtn" href="index.php?page=register">Zarejestruj się</a>
             </div>
             <div class="menuItem">
-                <a class="btn btn-primary spaceb constWidthBtn" href="index.php?page=scoreboard">Sprawdź wyniki</a>
-            </div>
-            <div class="menuItem">
-                <a class="btn btn-primary spaceb constWidthBtn" href="modules/user.php?action=logout">Wyloguj</a>
+                <a class="btn btn-primary spaceb constWidthBtn" href="index.php?page=admin">Panel administratora</a>
             </div>
         </div>
     </div>
 </div>
-        
 {% endblock %}
 
 {% block footer %}

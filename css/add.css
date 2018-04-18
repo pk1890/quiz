@@ -1,0 +1,14 @@
+.answerFlex{
+  display: flex;
+  justify-content: space-around;
+}
+.constWidthBtn{
+  max-width: 300px;
+  width: 100%;
+}
+.centerText{
+  text-align: center;
+}
+.tableQuestion tr>td:first-child{
+  padding-top: 20px;
+}

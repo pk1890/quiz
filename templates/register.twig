@@ -1,0 +1,40 @@
+{% extends 'static/app.twig' %}
+
+{% block head %}
+    {% include 'static/head.twig' %}
+{% endblock %}
+
+{% block content %}
+  
+        <!--    <input type="checkbox" name="accept">Akceptuję regulamin serwisu
+        </div class = "menuItem">
+        <input type="submit" value="Zarejestruj">
+    </form> -->
+
+    <form class="form-signin"  method="POST" action="modules/user.php?action=register">
+        <img class="mb-4 logo" src="/quiz/img/logo.png" alt="">
+        <h1 class="h3 mb-3 font-weight-normal">Zarejestruj</h1>
+        <label for="inputEmail" class="sr-only">Login</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Login" name="login" required autofocus>
+        <label for="inputPassword" class="sr-only">Hasło</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" name="pass" required>
+        <label for="inputPassword" class="sr-only">Powtórz Hasło</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Powtórz hasło" name="confirmPass" required>
+        <label for="inputPassword" class="sr-only">Email</label>
+        <input type="email" id="inputPassword" class="form-control spaceb" placeholder="E-mail" name="email" required>
+        
+        <div class="input-group-text spaceb">
+          <input type="checkbox" aria-label="Checkbox for following text input" name="accept"> &nbsp;Akceptuję regulamin serwisu
+         </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Zarejestruj</button>
+    <div class="alert alert-warning" role="alert">
+        {{message}}
+    </div>
+    </form>
+
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'static/footer.twig' %}
+{% endblock %}

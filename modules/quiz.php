@@ -3,11 +3,12 @@
     require_once "../vendor/autoload.php";
     require_once "../config/db.php";
 
+    session_start();
 
-    DevTools::p($_POST, true, false, false);
+   //DevTools::p($_POST, true, false, false);
     $data = ORM::for_table("questions")
         ->findArray();
-    DevTools::p($data, true, false, false);
+    //DevTools::p($data, true, false, false);
 
     $value = 10;
 
@@ -19,4 +20,10 @@
         }
     }
 
-    echo $sum;
+    $user = ORM::for_table("users")
+        ->where('id', $_SESSION['userId'])->findOne();
+
+    $user->score = $sum;
+    $user->save();
+
+    header("Location: ../index.php?page=scoreboard");
