@@ -4,17 +4,7 @@
     require_once "includes/devTools.php";
     require_once "config/twig.php";
 
-
     session_start();
-
-    
-    $user = ORM::for_table('users')
-        ->where('login', 'mleko')
-        ->findOne();
-    
-    // DevTools::p($user, true, false, true);
-
-    // echo $user->login;
 
     if(!isset($_GET['page'])){
         $_GET['page'] = '';
@@ -64,9 +54,16 @@
         }break;
         case 'quiz':{
             if(isset($_SESSION['userId'])){
+                $userData = ORM::for_table('users')
+                ->where('id', $_SESSION['userId'])
+                ->findOne();
+                if($userData->active == 0){
+                    $_SESSION['message'] = "Quiz został już wykonany.";
+                    header("Location: index.php?page=scoreboard");
+                    exit;
+                }
                 $questions = ORM::for_table('questions')
                     ->findArray();
-                //  DevTools::p($questions, true, false, true);
 
                 echo $twig->render('quiz.twig', [
                     'data' => $questions
@@ -86,7 +83,8 @@
                 ->findArray();
 
             echo $twig->render('scoreboard.twig', [
-                'data' => $data
+                'data' => $data,
+                'message' => isset($_SESSION['message'])? $_SESSION['message'] : ''
            ]);
         }
         break;
@@ -104,5 +102,3 @@
     }
 
     unset($_SESSION['message']);
-
-    

@@ -6,8 +6,14 @@
 
 {% block content %}
     <div class="container">
+        {% if message != "" %}
+            <div class="alert alert-warning" role="alert">
+                {{message}}
+            </div>
+        {% endif %}
         <div class="row justify-content-md-center">
             <div class="col">  
+                <img class="mb-4 logo center" src="/quiz/img/logo.png" alt="">
                 <h1>Tabela wyników</h1>
                 
                 <table class="table table-striped">

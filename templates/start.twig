@@ -10,10 +10,13 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-auto centerText">  
+            <img class="mb-4 logo" src="/quiz/img/logo.png" alt="">
             <h1>MENU</h1>
-            <div class="alert alert-warning" role="alert">
-                 {{message}}
-            </div>
+            {% if message != "" %}
+                <div class="alert alert-warning" role="alert">
+                    {{message}}
+                </div>
+            {% endif %}
             <div class="menuItem">
                 <a class="btn btn-primary spaceb constWidthBtn" href="index.php?page=userLogin">Zaloguj się</a>
             </div>

@@ -24,7 +24,9 @@
                          {{question.content}}
                         </td>
                         <td>
-                          <a class="btn btn-danger"href="modules/admin.php?action=remove&id={{question.id}}">Usuń</a>
+                        <div class="floatingR">
+                          <a class="btn btn-danger" href="modules/admin.php?action=remove&id={{question.id}}">Usuń</a>
+                        </div>
                         </td>
                 </tr>
             {% endfor %}

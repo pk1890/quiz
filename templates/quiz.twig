@@ -7,7 +7,8 @@
 {% block content %}
 <div class="container">
     <div class="row justify-content-md-center">
-        <div class="col-md-auto">  
+        <div class="col">  
+            <img class="mb-4 logo center" src="/quiz/img/logo.png" alt="">
             <h1>QUIZ</h1>
             <form method="POST" action="modules/quiz.php">
             {% for question in data %}
