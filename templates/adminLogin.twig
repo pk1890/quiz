@@ -8,19 +8,19 @@
 
     
     <form class="form-signin"  method="POST" action="modules/admin.php?action=login">
-      <img class="mb-4 logo" src="/quiz/img/logo.png" alt="">
-      <h1 class="h3 mb-3 font-weight-normal">Zaloguj się jako administrator</h1>
-      <label for="inputEmail" class="sr-only">Login</label>
-      <input type="text" id="inputEmail" class="form-control" placeholder="Login" name="login" required autofocus>
-      <label for="inputPassword" class="sr-only">Hasło</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" name="pass" required>
-    
-      <button class="btn btn-lg btn-primary btn-block spaceb" type="submit">Zaloguj</button>
-    {% if message != "" %}
-        <div class="alert alert-warning" role="alert">
-            {{message}}
-        </div>
-    {% endif %}
+        <img class="mb-4 logo" src="/quiz/img/logo.png" alt="">
+        {% if message != "" %}
+            <div class="alert alert-warning" role="alert">
+                {{message}}
+            </div>
+        {% endif %}
+        <h1 class="h3 mb-3 font-weight-normal">Zaloguj się jako administrator</h1>
+        <label for="inputEmail" class="sr-only">Login</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Login" name="login" required autofocus>
+        <label for="inputPassword" class="sr-only">Hasło</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Hasło" name="pass" required>
+        
+        <button class="btn btn-lg btn-primary btn-block spaceb" type="submit">Zaloguj</button>
     </form>
     
 {% endblock %}
